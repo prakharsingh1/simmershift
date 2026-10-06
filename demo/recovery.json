@@ -1,0 +1,4411 @@
+{
+  "generatedAt": "2026-10-06T20:10:59.022Z",
+  "project": "SimmerShift",
+  "simulation": "Synthetic pantry; scripted clock and explicit interruption advance; no Alexa device connection.",
+  "protocolVersion": "2025-11-25",
+  "sdkClient": {
+    "name": "simmershift-mcp",
+    "version": "0.1.0"
+  },
+  "tools": [
+    "create_plan",
+    "get_session",
+    "change_constraint",
+    "start_step",
+    "complete_step",
+    "pause_resume",
+    "replan",
+    "explain_changes"
+  ],
+  "checks": [
+    "Official SDK client negotiated MCP 2025-11-25 over Streamable HTTP and discovered eight tools.",
+    "Identical create retry returned the same persisted session.",
+    "Server restart retained the paused session and confirmed sauce preparation in SQLite.",
+    "After a simulated ten-minute interruption, deadline rescue chose available couscous; removing rice then kept that choice and the finished sauce.",
+    "Two independent cooking steps ran with separate persisted timer deadlines on two burners.",
+    "Reducing to one burner rescheduled pending work and disclosed an infeasible serving target.",
+    "A hard avoid conflict with completed lemon preparation failed atomically.",
+    "The recovered meal reached served with all prerequisite steps explicitly confirmed."
+  ],
+  "snapshots": [
+    {
+      "action": "create_plan",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 1,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon",
+            "rice"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 2,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:00:00.000Z",
+        "clock": "2026-10-07T18:00:00.000Z",
+        "clockOffsetMs": 0,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare rice",
+            "detail": "Measure and rinse white rice. Have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "rice"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Simmer the rice",
+            "detail": "Bring to a simmer, cover, and cook according to its package. This estimate assumes white rice; confirm tenderness before completing.",
+            "durationMinutes": 18,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "rice"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:02:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:02:00.000Z",
+            "scheduledEnd": "2026-10-07T18:04:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:04:00.000Z",
+            "scheduledEnd": "2026-10-07T18:09:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:04:00.000Z",
+            "scheduledEnd": "2026-10-07T18:07:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:09:00.000Z",
+            "scheduledEnd": "2026-10-07T18:18:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:07:00.000Z",
+            "scheduledEnd": "2026-10-07T18:09:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "rice",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:20:00.000Z",
+            "scheduledEnd": "2026-10-07T18:22:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:22:00.000Z",
+        "slackMinutes": 3,
+        "changes": [
+          {
+            "kind": "ingredient",
+            "message": "Using rice, chickpeas, carrot, and lemon from the listed pantry."
+          },
+          {
+            "kind": "schedule",
+            "message": "Estimated serving is 2026-10-07T18:22:00.000Z, with independent cooking tasks overlapping where equipment permits."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation."
+        ]
+      }
+    },
+    {
+      "action": "start_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 2,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon",
+            "rice"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 2,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:00:00.000Z",
+        "clock": "2026-10-07T18:00:00.000Z",
+        "clockOffsetMs": 0,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare rice",
+            "detail": "Measure and rinse white rice. Have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "rice"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:02:00.000Z",
+            "scheduledEnd": "2026-10-07T18:04:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Simmer the rice",
+            "detail": "Bring to a simmer, cover, and cook according to its package. This estimate assumes white rice; confirm tenderness before completing.",
+            "durationMinutes": 18,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "rice"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:04:00.000Z",
+            "scheduledEnd": "2026-10-07T18:22:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:04:00.000Z",
+            "scheduledEnd": "2026-10-07T18:06:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:06:00.000Z",
+            "scheduledEnd": "2026-10-07T18:11:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:06:00.000Z",
+            "scheduledEnd": "2026-10-07T18:09:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:11:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "active",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "rice",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:22:00.000Z",
+            "scheduledEnd": "2026-10-07T18:24:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:24:00.000Z",
+        "slackMinutes": 1,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Started Make the lemon finish. Its timer is an estimate; completion needs your confirmation."
+          },
+          {
+            "kind": "schedule",
+            "message": "Remaining work was rescheduled from 2026-10-07T18:00:00.000Z; estimated serving moved from 2026-10-07T18:22:00.000Z to 2026-10-07T18:24:00.000Z."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation."
+        ]
+      }
+    },
+    {
+      "action": "complete_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 3,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon",
+            "rice"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 2,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:02:00.000Z",
+        "clock": "2026-10-07T18:02:00.000Z",
+        "clockOffsetMs": 0,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare rice",
+            "detail": "Measure and rinse white rice. Have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "rice"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:02:00.000Z",
+            "scheduledEnd": "2026-10-07T18:04:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Simmer the rice",
+            "detail": "Bring to a simmer, cover, and cook according to its package. This estimate assumes white rice; confirm tenderness before completing.",
+            "durationMinutes": 18,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "rice"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:04:00.000Z",
+            "scheduledEnd": "2026-10-07T18:22:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:04:00.000Z",
+            "scheduledEnd": "2026-10-07T18:06:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:06:00.000Z",
+            "scheduledEnd": "2026-10-07T18:11:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:06:00.000Z",
+            "scheduledEnd": "2026-10-07T18:09:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:11:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "rice",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:22:00.000Z",
+            "scheduledEnd": "2026-10-07T18:24:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:24:00.000Z",
+        "slackMinutes": 1,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Confirmed Make the lemon finish complete. This work will be kept when the plan changes."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation."
+        ]
+      }
+    },
+    {
+      "action": "pause_resume",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 4,
+        "name": "Interrupted pantry bowl",
+        "status": "paused",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon",
+            "rice"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 2,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:02:00.000Z",
+        "clock": "2026-10-07T18:02:00.000Z",
+        "clockOffsetMs": 0,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare rice",
+            "detail": "Measure and rinse white rice. Have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "rice"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:02:00.000Z",
+            "scheduledEnd": "2026-10-07T18:04:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Simmer the rice",
+            "detail": "Bring to a simmer, cover, and cook according to its package. This estimate assumes white rice; confirm tenderness before completing.",
+            "durationMinutes": 18,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "rice"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:04:00.000Z",
+            "scheduledEnd": "2026-10-07T18:22:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:04:00.000Z",
+            "scheduledEnd": "2026-10-07T18:06:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:06:00.000Z",
+            "scheduledEnd": "2026-10-07T18:11:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:06:00.000Z",
+            "scheduledEnd": "2026-10-07T18:09:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:11:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "rice",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:22:00.000Z",
+            "scheduledEnd": "2026-10-07T18:24:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:24:00.000Z",
+        "slackMinutes": 1,
+        "changes": [
+          {
+            "kind": "pause",
+            "message": "Session paused. This does not stop heat or unattended kitchen timers; make the kitchen safe yourself."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation."
+        ],
+        "pausedAt": "2026-10-07T18:02:00.000Z"
+      }
+    },
+    {
+      "action": "get_session",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 4,
+        "name": "Interrupted pantry bowl",
+        "status": "paused",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon",
+            "rice"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 2,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:02:00.000Z",
+        "clock": "2026-10-07T18:02:00.000Z",
+        "clockOffsetMs": 0,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare rice",
+            "detail": "Measure and rinse white rice. Have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "rice"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:02:00.000Z",
+            "scheduledEnd": "2026-10-07T18:04:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Simmer the rice",
+            "detail": "Bring to a simmer, cover, and cook according to its package. This estimate assumes white rice; confirm tenderness before completing.",
+            "durationMinutes": 18,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "rice"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:04:00.000Z",
+            "scheduledEnd": "2026-10-07T18:22:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:04:00.000Z",
+            "scheduledEnd": "2026-10-07T18:06:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:06:00.000Z",
+            "scheduledEnd": "2026-10-07T18:11:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:06:00.000Z",
+            "scheduledEnd": "2026-10-07T18:09:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:11:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "rice",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:22:00.000Z",
+            "scheduledEnd": "2026-10-07T18:24:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:24:00.000Z",
+        "slackMinutes": 1,
+        "changes": [
+          {
+            "kind": "pause",
+            "message": "Session paused. This does not stop heat or unattended kitchen timers; make the kitchen safe yourself."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation."
+        ],
+        "pausedAt": "2026-10-07T18:02:00.000Z"
+      }
+    },
+    {
+      "action": "pause_resume",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 5,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon",
+            "rice"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 2,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:12:00.000Z",
+        "clock": "2026-10-07T18:12:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:18:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:20:00.000Z",
+            "scheduledEnd": "2026-10-07T18:29:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:29:00.000Z",
+            "scheduledEnd": "2026-10-07T18:31:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:31:00.000Z",
+        "slackMinutes": -6,
+        "changes": [
+          {
+            "kind": "pause",
+            "message": "Simulated a 10-minute interruption using a local logical clock."
+          },
+          {
+            "kind": "ingredient",
+            "message": "Changed base from rice to couscous because of serving-time pressure. Base preparation has not started, and couscous is in the pantry. This saves an estimated 3 minute(s): serving moves from 2026-10-07T18:34:00.000Z to 2026-10-07T18:31:00.000Z."
+          },
+          {
+            "kind": "schedule",
+            "message": "Remaining work was rescheduled from 2026-10-07T18:12:00.000Z; estimated serving moved from 2026-10-07T18:24:00.000Z to 2026-10-07T18:31:00.000Z."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "change_constraint",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 6,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 2,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:12:00.000Z",
+        "clock": "2026-10-07T18:12:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:18:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:20:00.000Z",
+            "scheduledEnd": "2026-10-07T18:29:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:29:00.000Z",
+            "scheduledEnd": "2026-10-07T18:31:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:31:00.000Z",
+        "slackMinutes": -6,
+        "changes": [
+          {
+            "kind": "constraint",
+            "message": "Updated pantry; completed work and running timers stay recorded."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "start_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 7,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 2,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:12:00.000Z",
+        "clock": "2026-10-07T18:12:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "active",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z",
+            "startedAt": "2026-10-07T18:12:00.000Z",
+            "timerEndsAt": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:18:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:20:00.000Z",
+            "scheduledEnd": "2026-10-07T18:29:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:29:00.000Z",
+            "scheduledEnd": "2026-10-07T18:31:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:31:00.000Z",
+        "slackMinutes": -6,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Started Prepare couscous. Its timer is an estimate; completion needs your confirmation."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "complete_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 8,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 2,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:13:00.000Z",
+        "clock": "2026-10-07T18:13:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z",
+            "startedAt": "2026-10-07T18:12:00.000Z",
+            "timerEndsAt": "2026-10-07T18:13:00.000Z",
+            "completedAt": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:18:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:20:00.000Z",
+            "scheduledEnd": "2026-10-07T18:29:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:29:00.000Z",
+            "scheduledEnd": "2026-10-07T18:31:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:31:00.000Z",
+        "slackMinutes": -6,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Confirmed Prepare couscous complete. This work will be kept when the plan changes."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "start_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 9,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 2,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:13:00.000Z",
+        "clock": "2026-10-07T18:13:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z",
+            "startedAt": "2026-10-07T18:12:00.000Z",
+            "timerEndsAt": "2026-10-07T18:13:00.000Z",
+            "completedAt": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "active",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:18:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:20:00.000Z",
+            "scheduledEnd": "2026-10-07T18:29:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:29:00.000Z",
+            "scheduledEnd": "2026-10-07T18:31:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:31:00.000Z",
+        "slackMinutes": -6,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Started Hydrate the couscous. Its timer is an estimate; completion needs your confirmation."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "start_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 10,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 2,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:13:00.000Z",
+        "clock": "2026-10-07T18:13:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z",
+            "startedAt": "2026-10-07T18:12:00.000Z",
+            "timerEndsAt": "2026-10-07T18:13:00.000Z",
+            "completedAt": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "active",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "active",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:18:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:20:00.000Z",
+            "scheduledEnd": "2026-10-07T18:29:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:29:00.000Z",
+            "scheduledEnd": "2026-10-07T18:31:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:31:00.000Z",
+        "slackMinutes": -6,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Started Prepare chickpeas. Its timer is an estimate; completion needs your confirmation."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "complete_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 11,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 2,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:15:00.000Z",
+        "clock": "2026-10-07T18:15:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z",
+            "startedAt": "2026-10-07T18:12:00.000Z",
+            "timerEndsAt": "2026-10-07T18:13:00.000Z",
+            "completedAt": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "active",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:15:00.000Z",
+            "completedAt": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:18:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:20:00.000Z",
+            "scheduledEnd": "2026-10-07T18:29:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:29:00.000Z",
+            "scheduledEnd": "2026-10-07T18:31:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:31:00.000Z",
+        "slackMinutes": -6,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Confirmed Prepare chickpeas complete. This work will be kept when the plan changes."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "start_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 12,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 2,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:15:00.000Z",
+        "clock": "2026-10-07T18:15:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z",
+            "startedAt": "2026-10-07T18:12:00.000Z",
+            "timerEndsAt": "2026-10-07T18:13:00.000Z",
+            "completedAt": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "active",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:15:00.000Z",
+            "completedAt": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "active",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z",
+            "startedAt": "2026-10-07T18:15:00.000Z",
+            "timerEndsAt": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:18:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:20:00.000Z",
+            "scheduledEnd": "2026-10-07T18:29:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:29:00.000Z",
+            "scheduledEnd": "2026-10-07T18:31:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:31:00.000Z",
+        "slackMinutes": -6,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Started Warm the chickpeas. Its timer is an estimate; completion needs your confirmation."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:31:00.000Z, 6 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "complete_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 13,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 2,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:20:00.000Z",
+        "clock": "2026-10-07T18:20:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z",
+            "startedAt": "2026-10-07T18:12:00.000Z",
+            "timerEndsAt": "2026-10-07T18:13:00.000Z",
+            "completedAt": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "active",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:15:00.000Z",
+            "completedAt": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z",
+            "startedAt": "2026-10-07T18:15:00.000Z",
+            "timerEndsAt": "2026-10-07T18:20:00.000Z",
+            "completedAt": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:20:00.000Z",
+            "scheduledEnd": "2026-10-07T18:23:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:23:00.000Z",
+            "scheduledEnd": "2026-10-07T18:32:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:32:00.000Z",
+            "scheduledEnd": "2026-10-07T18:34:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:34:00.000Z",
+        "slackMinutes": -9,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Confirmed Warm the chickpeas complete. This work will be kept when the plan changes."
+          },
+          {
+            "kind": "schedule",
+            "message": "Remaining work was rescheduled from 2026-10-07T18:20:00.000Z; estimated serving moved from 2026-10-07T18:31:00.000Z to 2026-10-07T18:34:00.000Z."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:34:00.000Z, 9 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:34:00.000Z, 9 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "change_constraint",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 14,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 1,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:20:00.000Z",
+        "clock": "2026-10-07T18:20:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z",
+            "startedAt": "2026-10-07T18:12:00.000Z",
+            "timerEndsAt": "2026-10-07T18:13:00.000Z",
+            "completedAt": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "active",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:15:00.000Z",
+            "completedAt": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z",
+            "startedAt": "2026-10-07T18:15:00.000Z",
+            "timerEndsAt": "2026-10-07T18:20:00.000Z",
+            "completedAt": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:20:00.000Z",
+            "scheduledEnd": "2026-10-07T18:23:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:23:00.000Z",
+            "scheduledEnd": "2026-10-07T18:32:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:32:00.000Z",
+            "scheduledEnd": "2026-10-07T18:34:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:34:00.000Z",
+        "slackMinutes": -9,
+        "changes": [
+          {
+            "kind": "constraint",
+            "message": "Updated equipment; completed work and running timers stay recorded."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:34:00.000Z, 9 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:34:00.000Z, 9 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "complete_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 15,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 1,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:21:00.000Z",
+        "clock": "2026-10-07T18:21:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z",
+            "startedAt": "2026-10-07T18:12:00.000Z",
+            "timerEndsAt": "2026-10-07T18:13:00.000Z",
+            "completedAt": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:21:00.000Z",
+            "completedAt": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:15:00.000Z",
+            "completedAt": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z",
+            "startedAt": "2026-10-07T18:15:00.000Z",
+            "timerEndsAt": "2026-10-07T18:20:00.000Z",
+            "completedAt": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:21:00.000Z",
+            "scheduledEnd": "2026-10-07T18:24:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:24:00.000Z",
+            "scheduledEnd": "2026-10-07T18:33:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:33:00.000Z",
+            "scheduledEnd": "2026-10-07T18:35:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:35:00.000Z",
+        "slackMinutes": -10,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Confirmed Hydrate the couscous complete. This work will be kept when the plan changes."
+          },
+          {
+            "kind": "schedule",
+            "message": "Remaining work was rescheduled from 2026-10-07T18:21:00.000Z; estimated serving moved from 2026-10-07T18:34:00.000Z to 2026-10-07T18:35:00.000Z."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:35:00.000Z, 10 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:35:00.000Z, 10 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "start_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 16,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 1,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:21:00.000Z",
+        "clock": "2026-10-07T18:21:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z",
+            "startedAt": "2026-10-07T18:12:00.000Z",
+            "timerEndsAt": "2026-10-07T18:13:00.000Z",
+            "completedAt": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:21:00.000Z",
+            "completedAt": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:15:00.000Z",
+            "completedAt": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z",
+            "startedAt": "2026-10-07T18:15:00.000Z",
+            "timerEndsAt": "2026-10-07T18:20:00.000Z",
+            "completedAt": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "active",
+            "scheduledStart": "2026-10-07T18:21:00.000Z",
+            "scheduledEnd": "2026-10-07T18:24:00.000Z",
+            "startedAt": "2026-10-07T18:21:00.000Z",
+            "timerEndsAt": "2026-10-07T18:24:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:24:00.000Z",
+            "scheduledEnd": "2026-10-07T18:33:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:33:00.000Z",
+            "scheduledEnd": "2026-10-07T18:35:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:35:00.000Z",
+        "slackMinutes": -10,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Started Chop the carrot. Its timer is an estimate; completion needs your confirmation."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:35:00.000Z, 10 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:35:00.000Z, 10 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "complete_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 17,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 1,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:24:00.000Z",
+        "clock": "2026-10-07T18:24:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z",
+            "startedAt": "2026-10-07T18:12:00.000Z",
+            "timerEndsAt": "2026-10-07T18:13:00.000Z",
+            "completedAt": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:21:00.000Z",
+            "completedAt": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:15:00.000Z",
+            "completedAt": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z",
+            "startedAt": "2026-10-07T18:15:00.000Z",
+            "timerEndsAt": "2026-10-07T18:20:00.000Z",
+            "completedAt": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:21:00.000Z",
+            "scheduledEnd": "2026-10-07T18:24:00.000Z",
+            "startedAt": "2026-10-07T18:21:00.000Z",
+            "timerEndsAt": "2026-10-07T18:24:00.000Z",
+            "completedAt": "2026-10-07T18:24:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:24:00.000Z",
+            "scheduledEnd": "2026-10-07T18:33:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:33:00.000Z",
+            "scheduledEnd": "2026-10-07T18:35:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:35:00.000Z",
+        "slackMinutes": -10,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Confirmed Chop the carrot complete. This work will be kept when the plan changes."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:35:00.000Z, 10 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:35:00.000Z, 10 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "start_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 18,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 1,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:24:00.000Z",
+        "clock": "2026-10-07T18:24:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z",
+            "startedAt": "2026-10-07T18:12:00.000Z",
+            "timerEndsAt": "2026-10-07T18:13:00.000Z",
+            "completedAt": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:21:00.000Z",
+            "completedAt": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:15:00.000Z",
+            "completedAt": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z",
+            "startedAt": "2026-10-07T18:15:00.000Z",
+            "timerEndsAt": "2026-10-07T18:20:00.000Z",
+            "completedAt": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:21:00.000Z",
+            "scheduledEnd": "2026-10-07T18:24:00.000Z",
+            "startedAt": "2026-10-07T18:21:00.000Z",
+            "timerEndsAt": "2026-10-07T18:24:00.000Z",
+            "completedAt": "2026-10-07T18:24:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "active",
+            "scheduledStart": "2026-10-07T18:24:00.000Z",
+            "scheduledEnd": "2026-10-07T18:33:00.000Z",
+            "startedAt": "2026-10-07T18:24:00.000Z",
+            "timerEndsAt": "2026-10-07T18:33:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:33:00.000Z",
+            "scheduledEnd": "2026-10-07T18:35:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:35:00.000Z",
+        "slackMinutes": -10,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Started Steam the carrot. Its timer is an estimate; completion needs your confirmation."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:35:00.000Z, 10 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:35:00.000Z, 10 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "complete_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 19,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 1,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:33:00.000Z",
+        "clock": "2026-10-07T18:33:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z",
+            "startedAt": "2026-10-07T18:12:00.000Z",
+            "timerEndsAt": "2026-10-07T18:13:00.000Z",
+            "completedAt": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:21:00.000Z",
+            "completedAt": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:15:00.000Z",
+            "completedAt": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z",
+            "startedAt": "2026-10-07T18:15:00.000Z",
+            "timerEndsAt": "2026-10-07T18:20:00.000Z",
+            "completedAt": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:21:00.000Z",
+            "scheduledEnd": "2026-10-07T18:24:00.000Z",
+            "startedAt": "2026-10-07T18:21:00.000Z",
+            "timerEndsAt": "2026-10-07T18:24:00.000Z",
+            "completedAt": "2026-10-07T18:24:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:24:00.000Z",
+            "scheduledEnd": "2026-10-07T18:33:00.000Z",
+            "startedAt": "2026-10-07T18:24:00.000Z",
+            "timerEndsAt": "2026-10-07T18:33:00.000Z",
+            "completedAt": "2026-10-07T18:33:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "pending",
+            "scheduledStart": "2026-10-07T18:33:00.000Z",
+            "scheduledEnd": "2026-10-07T18:35:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:35:00.000Z",
+        "slackMinutes": -10,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Confirmed Steam the carrot complete. This work will be kept when the plan changes."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:35:00.000Z, 10 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:35:00.000Z, 10 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "start_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 20,
+        "name": "Interrupted pantry bowl",
+        "status": "cooking",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 1,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:33:00.000Z",
+        "clock": "2026-10-07T18:33:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z",
+            "startedAt": "2026-10-07T18:12:00.000Z",
+            "timerEndsAt": "2026-10-07T18:13:00.000Z",
+            "completedAt": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:21:00.000Z",
+            "completedAt": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:15:00.000Z",
+            "completedAt": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z",
+            "startedAt": "2026-10-07T18:15:00.000Z",
+            "timerEndsAt": "2026-10-07T18:20:00.000Z",
+            "completedAt": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:21:00.000Z",
+            "scheduledEnd": "2026-10-07T18:24:00.000Z",
+            "startedAt": "2026-10-07T18:21:00.000Z",
+            "timerEndsAt": "2026-10-07T18:24:00.000Z",
+            "completedAt": "2026-10-07T18:24:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:24:00.000Z",
+            "scheduledEnd": "2026-10-07T18:33:00.000Z",
+            "startedAt": "2026-10-07T18:24:00.000Z",
+            "timerEndsAt": "2026-10-07T18:33:00.000Z",
+            "completedAt": "2026-10-07T18:33:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "active",
+            "scheduledStart": "2026-10-07T18:33:00.000Z",
+            "scheduledEnd": "2026-10-07T18:35:00.000Z",
+            "startedAt": "2026-10-07T18:33:00.000Z",
+            "timerEndsAt": "2026-10-07T18:35:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:35:00.000Z",
+        "slackMinutes": -10,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Started Bring the bowls together. Its timer is an estimate; completion needs your confirmation."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:35:00.000Z, 10 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:35:00.000Z, 10 minute(s) after the target."
+        ]
+      }
+    },
+    {
+      "action": "complete_step",
+      "session": {
+        "id": "416c740e-37ee-46ca-988b-ca4823bce17d",
+        "revision": 21,
+        "name": "Interrupted pantry bowl",
+        "status": "served",
+        "constraints": {
+          "pantry": [
+            "carrot",
+            "chickpeas",
+            "couscous",
+            "lemon"
+          ],
+          "avoid": [],
+          "servings": 2,
+          "targetServeAt": "2026-10-07T18:25:00.000Z",
+          "equipment": {
+            "burners": 1,
+            "oven": false
+          }
+        },
+        "createdAt": "2026-10-07T18:00:00.000Z",
+        "updatedAt": "2026-10-07T18:35:00.000Z",
+        "clock": "2026-10-07T18:35:00.000Z",
+        "clockOffsetMs": 600000,
+        "steps": [
+          {
+            "id": "prep-base",
+            "title": "Prepare couscous",
+            "detail": "Measure couscous and have a covered pan and tap water ready; follow package water ratios.",
+            "durationMinutes": 1,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:12:00.000Z",
+            "scheduledEnd": "2026-10-07T18:13:00.000Z",
+            "startedAt": "2026-10-07T18:12:00.000Z",
+            "timerEndsAt": "2026-10-07T18:13:00.000Z",
+            "completedAt": "2026-10-07T18:13:00.000Z"
+          },
+          {
+            "id": "cook-base",
+            "title": "Hydrate the couscous",
+            "detail": "Heat water, add couscous, cover, and hydrate according to its package. The burner is reserved for the full estimate.",
+            "durationMinutes": 8,
+            "dependencies": [
+              "prep-base"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "couscous"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:21:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:21:00.000Z",
+            "completedAt": "2026-10-07T18:21:00.000Z"
+          },
+          {
+            "id": "prep-protein",
+            "title": "Prepare chickpeas",
+            "detail": "Drain and rinse canned or previously cooked chickpeas. Dry legumes are not supported by this short recipe.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:13:00.000Z",
+            "scheduledEnd": "2026-10-07T18:15:00.000Z",
+            "startedAt": "2026-10-07T18:13:00.000Z",
+            "timerEndsAt": "2026-10-07T18:15:00.000Z",
+            "completedAt": "2026-10-07T18:15:00.000Z"
+          },
+          {
+            "id": "cook-protein",
+            "title": "Warm the chickpeas",
+            "detail": "Warm cooked chickpeas gently in a covered pan with a splash of tap water. Check and stir before completing.",
+            "durationMinutes": 5,
+            "dependencies": [
+              "prep-protein"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "chickpeas"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:15:00.000Z",
+            "scheduledEnd": "2026-10-07T18:20:00.000Z",
+            "startedAt": "2026-10-07T18:15:00.000Z",
+            "timerEndsAt": "2026-10-07T18:20:00.000Z",
+            "completedAt": "2026-10-07T18:20:00.000Z"
+          },
+          {
+            "id": "prep-vegetable",
+            "title": "Chop the carrot",
+            "detail": "Wash and chop carrot into small even pieces. Set up a covered pan for steaming with tap water.",
+            "durationMinutes": 3,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:21:00.000Z",
+            "scheduledEnd": "2026-10-07T18:24:00.000Z",
+            "startedAt": "2026-10-07T18:21:00.000Z",
+            "timerEndsAt": "2026-10-07T18:24:00.000Z",
+            "completedAt": "2026-10-07T18:24:00.000Z"
+          },
+          {
+            "id": "cook-vegetable",
+            "title": "Steam the carrot",
+            "detail": "Steam in a covered pan with tap water until tender. Check the pan and tenderness before completing.",
+            "durationMinutes": 9,
+            "dependencies": [
+              "prep-vegetable"
+            ],
+            "resources": [
+              "burner"
+            ],
+            "ingredients": [
+              "carrot"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:24:00.000Z",
+            "scheduledEnd": "2026-10-07T18:33:00.000Z",
+            "startedAt": "2026-10-07T18:24:00.000Z",
+            "timerEndsAt": "2026-10-07T18:33:00.000Z",
+            "completedAt": "2026-10-07T18:33:00.000Z"
+          },
+          {
+            "id": "make-sauce",
+            "title": "Make the lemon finish",
+            "detail": "Squeeze lemon for the finishing sauce; thin with a little tap water if desired.",
+            "durationMinutes": 2,
+            "dependencies": [],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:00:00.000Z",
+            "scheduledEnd": "2026-10-07T18:02:00.000Z",
+            "startedAt": "2026-10-07T18:00:00.000Z",
+            "timerEndsAt": "2026-10-07T18:02:00.000Z",
+            "completedAt": "2026-10-07T18:02:00.000Z"
+          },
+          {
+            "id": "assemble",
+            "title": "Bring the bowls together",
+            "detail": "Divide the base, protein, and vegetables between 2 bowls and finish with lemon. Confirm the cooked components are ready before serving.",
+            "durationMinutes": 2,
+            "dependencies": [
+              "cook-base",
+              "cook-protein",
+              "cook-vegetable",
+              "make-sauce"
+            ],
+            "resources": [
+              "hands"
+            ],
+            "ingredients": [
+              "couscous",
+              "chickpeas",
+              "carrot",
+              "lemon"
+            ],
+            "status": "complete",
+            "scheduledStart": "2026-10-07T18:33:00.000Z",
+            "scheduledEnd": "2026-10-07T18:35:00.000Z",
+            "startedAt": "2026-10-07T18:33:00.000Z",
+            "timerEndsAt": "2026-10-07T18:35:00.000Z",
+            "completedAt": "2026-10-07T18:35:00.000Z"
+          }
+        ],
+        "estimatedServeAt": "2026-10-07T18:35:00.000Z",
+        "slackMinutes": -10,
+        "changes": [
+          {
+            "kind": "progress",
+            "message": "Confirmed Bring the bowls together complete. This work will be kept when the plan changes."
+          },
+          {
+            "kind": "deadline",
+            "message": "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:35:00.000Z, 10 minute(s) after the target."
+          }
+        ],
+        "warnings": [
+          "Pantry availability does not verify quantities or dietary suitability; check labels and portions. Timings are estimates and require completion confirmation.",
+          "The requested serving time is not feasible with the current schedule. Current estimated serving is 2026-10-07T18:35:00.000Z, 10 minute(s) after the target."
+        ]
+      }
+    }
+  ]
+}
