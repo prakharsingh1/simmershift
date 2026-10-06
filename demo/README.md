@@ -1,6 +1,6 @@
 # SimmerShift demo assets
 
-These artifacts document the **alternate simulated Alexa+ experience** and supporting MCP workflow. All data is synthetic. Time advances are explicitly simulated. No real Alexa+ device or service is connected. **Both MP4s are local/private review copies excluded from the public repository.** Screenshots, evidence JSON, caption timings, and provenance are included as source assets. A public YouTube/Vimeo URL is pending.
+These artifacts document the **alternate simulated Alexa+ experience** and supporting MCP workflow. All data is synthetic. Time advances are explicitly simulated. No real Alexa+ device or service is connected. **Both MP4s are local/private review copies excluded from the public repository.** The three screenshots, MCP evidence JSON, caption timings, and provenance are published and verified source assets. A public YouTube/Vimeo URL is pending.
 
 | File | Use |
 | --- | --- |
@@ -17,4 +17,4 @@ These artifacts document the **alternate simulated Alexa+ experience** and suppo
 
 The primary local/private video is a silent captioned edit of the local UI capture, with a persistent simulation/synthetic/no-device label. It does not establish device integration, real cooking, completed serving, or a visible restart/reload. The endcard reports separately verified local tests and SDK feedback. The original remains local for provenance; neither MP4 can be downloaded from this repository. [DEMO_SCRIPT.md](../docs/DEMO_SCRIPT.md) maps the actual captioned sequence; [VERIFICATION.md](../docs/VERIFICATION.md) records the test and UI-review scope.
 
-A private Library review copy of the captioned cut was saved without public sharing. The approved [public GitHub repository](https://github.com/prakharsingh1/simmershift) has been created under adopted MIT copyright 2026 Prakhar Singh; source push/content verification are in progress. No public video or final submission has been published. The exact YouTube title/channel remains pending approval in [SUBMISSION_DRAFT.md](../docs/SUBMISSION_DRAFT.md).
+A private Library review copy of the captioned cut was saved without public sharing. Source, screenshots, and MCP evidence were published under MIT copyright 2026 Prakhar Singh and verified at [commit 41e1074](https://github.com/prakharsingh1/simmershift/commit/41e1074bcd87d8c38dcad79df75b6d5145f960ba). No public video or final submission has been published. The exact YouTube title/channel remains pending approval in [SUBMISSION_DRAFT.md](../docs/SUBMISSION_DRAFT.md).

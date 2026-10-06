@@ -1,6 +1,6 @@
 # SimmerShift submission draft
 
-**Status: final local prototype and demo verified; approved public repository created; source push/verification in progress; submission pending.** No public video URL is invented here.
+**Status: final local prototype and demo verified; source, screenshots, and MCP evidence published and verified under MIT; submission pending.** No public video URL is invented here.
 
 ## Entry fields
 
@@ -11,7 +11,7 @@
 | Primary track | Alexa+ |
 | Technical route | **Alternate simulated Alexa+ experience**, backed by a real local MCP `2025-11-25` Streamable HTTP server tested with the official SDK client. |
 | Mini challenges | None claimed. |
-| Source repository | [Public GitHub `prakharsingh1/simmershift`](https://github.com/prakharsingh1/simmershift) created under adopted MIT copyright 2026 Prakhar Singh; source push/content verification in progress. |
+| Source repository | [Public GitHub `prakharsingh1/simmershift`](https://github.com/prakharsingh1/simmershift), MIT copyright 2026 Prakhar Singh; full 36-file source/assets snapshot verified at [41e1074](https://github.com/prakharsingh1/simmershift/commit/41e1074bcd87d8c38dcad79df75b6d5145f960ba). No MP4 included. |
 | Demo video | Local/private review copy `demo/assets/simmershift-demo-captioned.mp4`, 85.50 seconds, excluded from the public repository; public upload URL and exact title/channel approval pending. |
 | Live URL | None; local reproducible app. |
 | Real Alexa+ integration | Not attempted or tested. |
@@ -89,15 +89,15 @@ This checklist summarizes readiness, not organizer approval or legal advice. The
 | Valid dependency/resource ordering | Dependency and resource-capacity tests passed, including overlapping passive timers. |
 | Interruption recovery | Automatic pre-preparation deadline rescue, started-food preservation, complete workflow recovery, physical-state resume, and changed-heat estimate reset passed. |
 | UI visual review | Final isolated Chrome interaction/reload QA passed at desktop 1440 px and mobile 390 px: no page overflow, zero console errors/warnings. Timers advanced while paused; heat-change reset did not complete active food. |
-| Demo assets | Primary captioned H.264 1440×900/30 fps silent local demo, 85.50 seconds; original 105.96-second capture retained locally. Both MP4s excluded from public source; private Library review copy saved. [Three screenshots and provenance](../demo/README.md) are repository assets. Synthetic data and labeled clock advance; no Alexa connection. Public video URL pending. |
-| Repository source access | [Public repository created](https://github.com/prakharsingh1/simmershift) under MIT; source push/content verification in progress. |
+| Demo assets | Primary captioned H.264 1440×900/30 fps silent local demo, 85.50 seconds; original 105.96-second capture retained locally. Both MP4s excluded from public source; private Library review copy saved. [Three screenshots and MCP evidence](../demo/README.md) are published and verified. Synthetic data and labeled clock advance; no Alexa connection. Public video URL pending. |
+| Repository source access | [Source, screenshots, and evidence published and verified](https://github.com/prakharsingh1/simmershift/commit/41e1074bcd87d8c38dcad79df75b6d5145f960ba) under MIT; no MP4 included. |
 | Final submission | Pending actual content, URLs, and review of newly encountered agreements. |
 
 See [VERIFICATION.md](VERIFICATION.md) for test categories, UI scenarios, evidence paths, and scope limits.
 
 ## Approved decision and remaining readiness
 
-1. **Approved and adopted:** public **[`prakharsingh1/simmershift`](https://github.com/prakharsingh1/simmershift)** and **MIT, Copyright (c) 2026 Prakhar Singh**. [The license decision is recorded](LICENSE_PROPOSAL.md); repository creation succeeded and source push/content verification remain in progress.
+1. **Approved, adopted, and source/assets verified:** public **[`prakharsingh1/simmershift`](https://github.com/prakharsingh1/simmershift)** and **MIT, Copyright (c) 2026 Prakhar Singh**. [The license decision is recorded](LICENSE_PROPOSAL.md); source, screenshots, and MCP evidence are published, with both MP4s excluded.
 2. **Pending:** exact public YouTube title/channel approval and upload. The local captioned video exists; a public video URL does not.
 3. **Before final submission:** add the verified source/video URLs, retain truthful claims, and check any newly presented explicit agreements. Existing registration approval does not establish facts such as entrant eligibility or authorship.
 

@@ -37,4 +37,4 @@ From this project folder, run `npm ci`, `npm run check`, and `npm run demo` to v
 
 Keep the simulation label readable and capture only this project window and synthetic data. Include no unrelated account data, background music, or unlicensed third-party assets. Record successful actions only after their result appears. If adding restart, reload, or terminal scenes to a later video, capture those actions rather than borrowing the current endcard as proof of visible footage.
 
-The repository's [screenshots and provenance](../demo/README.md) are source assets; the videos remain local/private. A public video URL must be added after its approved upload, and repository source access must be verified after the source push.
+Source, provenance, [screenshots, and MCP evidence](../demo/README.md) are published and verified under MIT. The videos remain local/private. A public video URL must be added after its approved upload.

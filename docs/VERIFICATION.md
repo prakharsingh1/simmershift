@@ -51,7 +51,11 @@ These checks establish UI behavior for the demonstrated scenarios; they do not e
 
 Both videos' metadata was inspected with `ffprobe`. The primary captioned cut passed full `ffmpeg` decode without errors and visual review at five sampled frames. It uses a four-second intro, source seconds 24–51 slowed to 0.4× for readability, and a fourteen-second verification/SDK-feedback endcard. Its UI footage does not demonstrate server restart, reload, real cooking, or a completed serving; those behaviors are not claimed by its captions. Process-restart and complete-workflow results come from the separate automated evidence.
 
-Both MP4s are local review files excluded from the public repository, not public upload URLs. A private Library review copy of the captioned cut was saved without public sharing. The approved [public GitHub repository](https://github.com/prakharsingh1/simmershift) has been created and MIT copyright 2026 Prakhar Singh adopted; source push/content verification are in progress. Public video upload still needs its exact title/channel approved; final submission awaits complete source/video access and any new explicit agreements checked. See [SUBMISSION_DRAFT.md](SUBMISSION_DRAFT.md).
+Both MP4s are local review files excluded from the public repository, not public upload URLs. A private Library review copy of the captioned cut was saved without public sharing. Code, tests, configuration, docs, three screenshots, and MCP evidence are published under MIT copyright 2026 Prakhar Singh at verified [commit 41e1074](https://github.com/prakharsingh1/simmershift/commit/41e1074bcd87d8c38dcad79df75b6d5145f960ba). Public video upload still needs its exact title/channel approved. Final submission awaits a public video URL and any new explicit agreements checked. See [SUBMISSION_DRAFT.md](SUBMISSION_DRAFT.md).
+
+## Source publication evidence
+
+The public `main` full source snapshot was verified at commit `41e1074bcd87d8c38dcad79df75b6d5145f960ba`, with tree `2f41124035f16bb638cd43e23770179834bd201a` exactly matching the **36 reviewed source files**. This includes the three PNG screenshots and `demo/recovery.json`; **zero MP4s** are included. The initial 32-file core snapshot was independently verified before those four assets were added. Source code is unchanged from the 45-test and eight-assertion local runs. The relative screenshot/evidence links above now refer to published repository assets; inline video paths remain local/private only.
 
 ## Reproduce
 

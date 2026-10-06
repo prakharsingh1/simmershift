@@ -16,7 +16,7 @@ npm run check
 npm run dev
 ```
 
-Open <http://127.0.0.1:4317>. The MCP endpoint is <http://127.0.0.1:4317/mcp>. Run commands from this project folder, which currently retains the original working directory name `dinnershift-mcp`.
+Open <http://127.0.0.1:4317>. The MCP endpoint is <http://127.0.0.1:4317/mcp>. Run commands from the cloned project folder.
 
 | Environment variable | Default | Purpose |
 | --- | --- | --- |
@@ -36,7 +36,7 @@ npm start
 
 The final local build passed typecheck, build, **45 tests**, **8 demo assertions through the official MCP client**, and the browser-script syntax check. Isolated Chrome QA exercised recovery, parallel timers, physical-state confirmation, paused countdowns, reload restoration, and a 390 px mobile layout, with no page overflow or console errors/warnings. See [verification details](docs/VERIFICATION.md) for the scope and evidence.
 
-The primary review video, `demo/assets/simmershift-demo-captioned.mp4`, is an **85.50-second** silent cut of the actual app with synthetic data and clearly labeled simulated time. It and the original MP4 remain local/private review copies **excluded from the public repository**. A private Library copy was saved. The repository's [demo assets](demo/README.md) include desktop/mobile screenshots, caption timings, and provenance. A public YouTube/Vimeo URL is still pending approval and upload.
+The primary review video, `demo/assets/simmershift-demo-captioned.mp4`, is an **85.50-second** silent cut of the actual app with synthetic data and clearly labeled simulated time. It and the original MP4 remain local/private review copies **excluded from the public repository**. A private Library copy was saved. [Screenshots, MCP evidence, caption timings, and provenance](demo/README.md) are published source assets. A public YouTube/Vimeo URL is pending approval and upload.
 
 ## Try the recovery workflow
 
@@ -89,4 +89,4 @@ The web demo uses a local REST adapter at `/api/tools/:tool`. The MCP endpoint u
 - [MIT source license](LICENSE)
 - [Approved MIT license decision](docs/LICENSE_PROPOSAL.md)
 
-The approved public [GitHub repository](https://github.com/prakharsingh1/simmershift) has been created; source push and verification are in progress. The root [LICENSE](LICENSE) adopts **MIT, Copyright (c) 2026 Prakhar Singh**. The entry has not been submitted. A public video upload still needs its exact title/channel approved. The SimmerShift name is a working creative name; domain or trademark availability has not been checked.
+The code, tests, configuration, docs, three screenshots, and MCP evidence are published in the public [GitHub repository](https://github.com/prakharsingh1/simmershift), verified at [commit 41e1074](https://github.com/prakharsingh1/simmershift/commit/41e1074bcd87d8c38dcad79df75b6d5145f960ba). The root [LICENSE](LICENSE) adopts **MIT, Copyright (c) 2026 Prakhar Singh**. Neither MP4 is in the repository. The entry has not been submitted, and a public video upload still needs its exact title/channel approved. The SimmerShift name is a working creative name; domain or trademark availability has not been checked.

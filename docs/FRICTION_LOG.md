@@ -71,3 +71,23 @@ Entries record actual development observations. Device integration has not been 
 - Severity: Important for this UI verification setup.
 - Workaround: install the official `@playwright/cli` version `0.1.22` in a dedicated temporary directory under `/tmp`, then use an isolated Chrome session. Final UI checks and capture completed.
 - Suggestion: prefer a complete pinned CLI installation for repeatable QA and report missing package metadata directly.
+
+## 2026-10-06 — TLS failures during approved source publication
+
+- Task: publish the explicitly approved public SimmerShift source repository under MIT.
+- Steps: attempted Git HTTPS push and API uploads, including small files; checked the remote after failures rather than assuming publication.
+- Expected: normal encrypted upload and a verifiable remote commit/tree.
+- Actual: the local transport intermittently reported TLS bad-record-MAC errors. The failed initial attempt left no published branch. This was publication-environment friction, not a device, MCP, or application failure.
+- Severity: Important for completing source delivery.
+- Workaround: retain certificate verification, use TLS 1.2 with bounded 512-byte writes, and compare the published commit/tree with the reviewed source snapshot. Both the initial core snapshot and the full 36-file source/assets snapshot were subsequently verified; no MP4 was published.
+- Suggestion: provide clear upload progress and post-failure remote verification; keep secure transport diagnostics separate from project runtime feedback.
+
+## 2026-10-06 — Publishing approval context needed explicit verification
+
+- Task: confirm authority for the exact public repository destination and MIT license.
+- Steps: an automatic approval worker did not initially have the human authorization context; independently re-read the original direct human approval before continuing.
+- Expected: the publishing check recognizes the already approved destination and license.
+- Actual: authorization evidence needed to be checked explicitly rather than inferred from another project or an agent's summary.
+- Severity: Important for a correct publishing handoff; unrelated to Amazon or MCP behavior.
+- Workaround: verify the original explicit approval and limit publication to that destination/license. No new account grant or altered consent was used.
+- Suggestion: carry the approved action's scope into review while keeping private conversation identifiers and credentials out of source artifacts.
