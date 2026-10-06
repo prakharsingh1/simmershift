@@ -1,0 +1,26 @@
+SimmerShift captioned demo provenance
+
+Source: simmershift-demo.mp4, a 105.96-second local browser recording.
+Original source retained unchanged.
+Output: simmershift-demo-captioned.mp4, 85.50 seconds, H.264,
+1440 x 900, 30 frames/second, 2,440,790 bytes, silent.
+
+Edit: four-second title hold from the actual opening frame; source
+seconds 24 through 51 played at 0.4x speed for readability; fourteen-second
+verification and SDK-feedback card. Captions replace the source recording's
+unused bottom strip. Visible app content is retained.
+
+The captured UI uses synthetic kitchen data and an explicitly labeled
+Alexa+ style simulation. Each interruption advances the local logical
+clock by ten minutes; cooking steps are manually confirmed for this demo.
+No actual cooking, connected Alexa device, microphone interaction, live
+Alexa onboarding, or completed serving is demonstrated.
+
+The final card reports the completed local 45-test verification run.
+Official MCP client calls and persisted process-restart behavior are
+covered by separate automated tests. The recorded UI does not visibly
+demonstrate a server restart, and no caption claims one.
+
+Verified with ffprobe and full ffmpeg decode; no decode errors.
+Visually inspected final output at 1, 24, 49, 68, and 79 seconds.
+Caption times are in caption-timings.txt.

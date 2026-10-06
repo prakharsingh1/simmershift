@@ -1,0 +1,10 @@
+node_modules/
+dist/
+data/
+*.sqlite*
+output/playwright/
+review/
+demo/assets/*.mp4
+.playwright-cli/
+.env
+.DS_Store

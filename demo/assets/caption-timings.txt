@@ -1,0 +1,10 @@
+04.00–15.00s Set pantry, two burners, and a target serving time.
+15.00–20.00s Record a completed step; later changes keep that work.
+20.00–27.50s 10-minute clock advance: swap unstarted rice for pantry couscous.
+27.50–38.25s Steps unlock only when prerequisites and kitchen resources allow.
+38.25–46.50s Two foods, two active timers. Completion still needs your check.
+46.50–52.50s Before resuming, confirm what physically happened to the heat.
+52.50–60.00s Advance 10 simulated minutes. Elapsed timers remain active.
+60.00–65.50s Confirm chickpeas done; reduce the kitchen to one burner.
+65.50–71.50s Review the saved recovery journal and updated serving estimate.
+71.50–85.50s Verification and honest SDK feedback card

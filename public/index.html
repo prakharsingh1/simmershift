@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#244b3b">
+    <meta name="description" content="SimmerShift helps dinner stay on track when plans change. A local, simulated kitchen planning demo backed by an MCP server.">
+    <title>SimmerShift — Dinner stays on track</title>
+    <link rel="icon" href="/mark.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to kitchen plan</a>
+    <div class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="SimmerShift home"><img src="/mark.svg" width="36" height="36" alt=""><span>SimmerShift</span></a>
+        <div class="header-note"><span class="connection-dot" aria-hidden="true"></span><span>Local kitchen, lasting memory</span></div>
+      </header>
+      <div class="simulation-label"><span class="small-spark" aria-hidden="true">✦</span> Alexa+ style simulation <span aria-hidden="true">·</span> local MCP server <span aria-hidden="true">·</span> no device connection</div>
+      <main id="main" tabindex="-1">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy"><p class="eyebrow">A LITTLE FLEXIBILITY. A BETTER DINNER.</p><h1 id="hero-title">Plans change.<br><em>Dinner adapts.</em></h1><p class="hero-subtitle">Dinner stays on track when plans change.</p></div>
+          <div class="hero-illustration" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><span class="illustration-leaf leaf-one"></span><span class="illustration-leaf leaf-two"></span><div class="bowl"><span class="food food-one"></span><span class="food food-two"></span><span class="food food-three"></span><span class="food food-four"></span><span class="food food-five"></span><div class="bowl-rim"></div><div class="bowl-base"></div></div><span class="illustration-caption">Good dinner. Flexible plan.</span></div>
+        </section>
+        <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+        <div id="error" class="notice notice-error" role="alert" hidden></div>
+        <div id="workspace" aria-busy="true"><div class="loading-card"><span class="loading-dot"></span>Opening your kitchen…</div></div>
+      </main>
+      <footer><p>Built for the interruptions between the first chop and the last bite.</p><span>SimmerShift · local demo</span></footer>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>
